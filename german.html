@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>legacylisten - Deutsch - legacylisten</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="english.html"><strong aria-hidden="true">1.</strong> legacylisten - English</a></li><li class="chapter-item expanded "><a href="german.html" class="active"><strong aria-hidden="true">2.</strong> legacylisten - Deutsch</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">legacylisten</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="legacylisten"><a class="header" href="#legacylisten">legacylisten</a></h1>
+<p><code>legacylisten</code> ist ein einfacher CLI Musikspieler, den ich geschrieben
+habe, da kein existierender meinen Bedürfnissen entsprach.  Die
+Hauptbesonderheit ist, dass man ändern kann, wie oft ein Lied
+abgespielt wird (<code>legacylisten</code> ist immer auf Shuffle-all), aber es
+gibt auch einige noch komischere Funktionen.</p>
+<h2 id="funktionsweise"><a class="header" href="#funktionsweise">Funktionsweise</a></h2>
+<p><code>legacylisten</code> erzeugt eine Liste aller Lieder in
+<code>~/.zvavybir/legacylisten/data</code><sup class="footnote-reference"><a href="#1">1</a></sup> zusammen mit ihrer
+&quot;Spielwahrscheinlichkeit&quot; und Lautstärke (die Standardwerte sind 10
+und 10% respektive).  Dann wählt es ein zufälliges Lied mit der
+Wahrscheinlichkeit proportional zu seiner Spielwahrscheinlichkeit aus
+und spielt es bis der Nutzer etwas anderes sagt.</p>
+<p>Die Lautstärke ist pro Lied anpassbar und wird gespeichert.  Obwohl es
+einfach wäre (lächerlich trivial sogar) zu implementieren, gibt es
+keine Möglichkeit die globale Lautstärke zu verändern, da ich finde,
+dass man dies besser dem Betriebssystem überlässt.  Worin sich ein
+Musikspieler hervortun kann, ist zu wissen, welches Lied gespielt wird
+und darauf zu reagieren.  Die Idee hinter dieser Funktion ist die
+Lautstärke von sehr leisen Liedern einmal zu erhöhen und sich dann
+nicht mehr darum kümmern zu müssen.</p>
+<p>Eine andere ziemlich komische Funktion ist das man nicht nur sofort
+stoppen/beenden kann, sondern auch wenn das aktuelle Lied zu Ende ist.
+Das Komischste ist aber, dass <code>legacylisten</code> alle Verbindungen zur
+Festplatte trennt, wenn das *NIX Signal <code>SIGUSR1</code> gefangen wird und
+nur nach <code>SIGUSR2</code> wieder Verbindungen aufnimmt.  <code>SIGUSR1</code>
+unterbricht allerdings kein bereits spielendes Lied, da Lieder immer
+gepuffert werden<sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
+<h2 id="befehle"><a class="header" href="#befehle">Befehle</a></h2>
+<p>Befehle sind der Weg auf dem <code>legacylisten</code> bedient wird und bestehen
+immer aus einem einzigen Zeichen.  Ursprünglich waren sie immer der
+erste Buchstabe des Befehlsnamen, da dies aber in sehr komische Namen
+resultierte (z.b. <code>f</code> – &quot;<strong>f</strong>ainter&quot; <em>schwächer</em> – um die Lautstärke
+zu verringern), habe ich mich entschieden sie einfach alphabetisch
+durch zu nummerieren.</p>
+<p>Um ein Befehl auszuführen, tippe einfach sein Buchstaben ein (aber
+denke daran, dass Terminals üblicherweise Zeilen-gepuffert sind,
+d.h. <code>legacylisten</code> sieht – und reagiert auf – die Eingabe nur nachdem
+Enter gedrückt wurde).</p>
+<p>Es gibt die folgenden Befehle:</p>
+<ul>
+<li><code>?</code>: Zeigt eine Liste aller Befehle mit Erklärung (mehr oder weniger
+diese Liste).<sup class="footnote-reference"><a href="#3">3</a></sup></li>
+<li><code>a</code>: Erhöht die Spielwahrscheinlichkeit des aktuellen Lieds um 1.</li>
+<li><code>b</code>: Verringert die Spielwahrscheinlichkeit des aktuellen Lieds um 1.</li>
+<li><code>c</code>: Beendet <code>legacylisten</code> und speichert die
+Spielwahrscheinlichkeiten und Lautstärken in
+<code>~/.zvavybir/legacylisten/songs.csv</code>.</li>
+<li><code>d</code>: Stoppt das Abspielen.</li>
+<li><code>e</code>: Setzt das Abspielen wieder fort nachdem es mit <code>d</code> oder <code>l</code>
+angehalten wurde (überschreibt <code>SIGUSR1</code> allerdings nicht).</li>
+<li><code>f</code>: Überspringt das Lied.</li>
+<li><code>g</code>: Erhöht die Lautstärke des aktuellen Lieds permanent um 1%
+(allerdings nicht auf mehr als 100%).</li>
+<li><code>h</code>: Verringert die Lautstärke des aktuellen Lieds permanent um 1%
+(allerdings nicht auf weniger als 0%).</li>
+<li><code>i</code>: Zeigt an wie lange das Lied schon spielt und – wenn
+verfügbar<sup class="footnote-reference"><a href="#4">4</a></sup> – wie lange es insgesamt brauchen wird.</li>
+<li><code>j</code>: Wechselt zwischen Abspielen und Stoppen.</li>
+<li><code>k</code>: Beendet <code>legacylisten</code> sobald das aktuelle Lied fertig ist (<code>k</code>
+nimmt Vorrang zu <code>l</code>).</li>
+<li><code>l</code>: Wie <code>k</code>, stoppt aber nur anstatt zu beenden.</li>
+<li><code>m</code>: Zeigt die Metadaten im id3-Tag des Lieds (die Länge muss
+üblicherweise mit <code>i</code> nachgefragt werden, da sie nur selten im
+id3-Tag gespeichert wird).</li>
+<li><code>n</code>: Öffnet das Cover in dem eingestellten Bildbetrachter (diese
+Funktion nutzt <code>mimeopen</code> was so viel ich weiß unter MS Windows
+nicht verfügbar ist).  Wenn das Lied kein Cover hat wird
+<code>~/.zvavybir/legacylisten/default.png</code> stattdessen geöffnet.  Für
+das Bild, das ich nutze (und gemacht habe, also ziemlich schlecht
+ist) siehe
+<a href="https://github.com/zvavybir/legacylisten/blob/master/imgs/default.png">hier</a>.</li>
+<li><code>o</code>: Wiederholung des Liedes anhalten (wenn allerdings das Lied als
+Wiederholung gespielt wird, wird nicht sofort beendet; wenn das
+gewünscht ist, überspringe auch noch mit <code>f</code>).</li>
+<li><code>p</code>: Wiederholt das aktuelle Lied einmal.</li>
+<li><code>q</code>: Wiederholt das aktuelle Lied ewig.</li>
+<li><code>r</code>: Springt zum Anfang des aktuellen Lieds oder – wenn es bereits
+am Anfang ist – zum vorherigen.  Man kann so viele Lieder
+zurückgehen wie man will (oder genauer gesagt so viele es gibt).
+Alle gespielten Lieder werden gespeichert (allerdings nur in einem
+Aufruf von <code>legacylisten</code>, wenn es neu gestartet wird ist die
+Geschichte verloren) und wenn man zurückgeht, wird man auf dieses
+Lied wieder das Gleiche folgen sehen wie davor.</li>
+</ul>
+<h2 id="low-memory-handler"><a class="header" href="#low-memory-handler">Low memory handler</a></h2>
+<p>Wie schon vorher kurz angeschnitten, hatten insbesondere ältere
+Versionen von <code>leacylisten</code> einen schlimmen RAM-Fußabdruck, was mein
+System ein paar Mal für ein paar Sekunden lahmgelegt hat.  Unter Linux
+gibt es für so einen Fall eigentlich den OOM Killer (welcher bei
+Bedarf den unwichtigsten, aber verschwenderischsten Prozess beendet),
+es stellt sich allerdings heraus, dass der Chromium Webbrowser (die
+Freie-Software Variante von Google Chrome), welchen ich manchmal
+gezwungener Maßen einsetzte, sogar noch schlimmer als meine Verbrechen
+ist.  Anstatt etwas Vernünftiges zu machen, habe ich stattdessen eine
+Routine zu <code>legacylisten</code> hinzugefügt, die die Menge an freiem RAM
+überwacht und sich selbst beendet, wenn es unter ein (einstellbares)
+Limit fällt (ein GiB aktuell).</p>
+<p>Es wird aktuell eine falsche Definition von &quot;freiem RAM&quot; genutzt
+(Festplattencaching wird als verwendet gezählt, obwohl es nicht ist;
+siehe <a href="https://www.linuxatemyram.com/">diese berühmte Seite</a> für
+mehr), weswegen es unnötigerweise anschlägt.  Obwohl das besser ist
+als umgekehrt, ist aus diesem Grund es aktuell standardmäßig aus.</p>
+<p>Dies nutzt die *NIX Funktion <code>sysconf(3)</code>, wird also auf veralteten
+Plattformen nicht funktionieren.</p>
+<h2 id="konfigurationsdatei"><a class="header" href="#konfigurationsdatei">Konfigurationsdatei</a></h2>
+<p><code>legacylisten</code> kann mittels <code>~/.zvavybir/legacylisten/conffile.csv</code>
+konfiguriert werden.  Trotz der Dateiendung ist es <em>keine</em> richtige
+CSV-Datei, nur sehr stark daran angelehnt.  Wenn eine Option nicht
+geparst werden kann, wird sie still verworfen, pass also auf.  Jede
+Option hat eine eigene Zeile (mit verpflichtendem Newline-Zeichen am
+Ende, sogar für die letzte Zeile und unter MS Windows) und jeder Teil
+ist mit Kommata getrennt (und jede Zeile muss mit einem Komma enden).
+Als ein Beispiel, hier ist meine Konfigurationsdatei:</p>
+<pre><code>data_dir,/media/my_user_name/external_harddrive/legacylisten,
+ignore_ram,false,
+lang,german,
+</code></pre>
+<p>Es gibt aktuell vier mögliche Optionen:</p>
+<ul>
+<li><code>data_dir</code>: Wenn deine Musiksammlung woanders ist (z.b. wie bei mir
+auf einer externen Festplatte oder in <code>~/Musik</code>), kann diese Option
+genutzt werden, um das Verzeichnis, dass <code>legacylisten</code> durchsucht,
+zu ändern.  Die <code>~/</code> Notation ist sogar unter *NIX Systemen nicht in
+der Konfigurationsdatei verwendbar.</li>
+<li><code>minimum_ram</code>: Das Limit für den <a href="#low-memory-handler">low memory
+handler</a> in Bytes.</li>
+<li><code>ignore_ram</code>: Deaktiviert den low memory handler (mögliche Werte
+sind <code>true</code> <em>wahr</em> und <code>false</code> <em>falsch</em>).  Wenn diese Option gesetzt
+ist (aktuell Standard) wird <code>minimum_ram</code> ignoriert.</li>
+<li><code>lang</code>: <code>legacylisten</code> unterstützt grundlegende
+Internationalisierung und dies ist die Option, um es zu aktivieren.
+Es sind aktuell drei Werte zugelassen:
+<ul>
+<li><code>english</code>: Stellt die Sprache auf Englisch (das ist der Standard).</li>
+<li><code>german</code> oder <code>deutsch</code>: Stellt die Sprache auf Deutsch.</li>
+<li><code>custom</code>: Wenn man eine Übersetzungsdatei hat, sie aber nicht in
+dem offiziellen Quellcode aufgenommen ist (vielleicht weil sie
+noch im Entstehen begriffen ist, man nur kurz was ausprobieren
+will oder weil aus legalen Gründen nicht möglich ist sie unter
+<code>legacylisten</code>s <a href="#lizenz">license</a> zu veröffentlichen),
+ermöglicht diese Option, sie trotzdem zu nutzen.  Diese Option
+braucht zwei weitere Werte, den Pfad zur Datei und die Sprach-ID.
+Als Beispiel, wäre Englisch nicht bereits unterstützt, könnte man
+es so umgehen:
+<pre><code>lang,custom,/pfad/zur/übersetzung.fl,en-US,
+</code></pre>
+Der Pfad hat keine Anforderungen über Dateiname oder Dateiendung,
+die Sprach-ID muss aber korrekt sein.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mithelfen"><a class="header" href="#mithelfen">Mithelfen</a></h2>
+<p>Wie jedes Programm auch <code>legacylisten</code> kann immer verbessert werden.
+Obwohl ich auch alleine versuche, es nutzbar zu machen, habe ich nicht
+unbegrenzt Zeit und insbesondere nicht immer die besten Ideen.  Wenn
+du damit oder mit etwas anderes (wie ein Featurevorschlag, einer
+weiteren Sprache oder Dokumentationsverbesserungen) helfen kannst,
+<strong>helfe bitte mit</strong>!</p>
+<p>Ich nehme an, dass solange nichts anderes angegeben ist, alle Beiträge
+unter der notwendigen Lizenz stehen.</p>
+<h2 id="lizenz"><a class="header" href="#lizenz">Lizenz</a></h2>
+<p>Obwohl unüblich für ein Rust Programm, steht <code>legacylisten</code> unter der
+GNU General Public License Version 3 oder (deiner Wahl nach) jeder
+späteren.</p>
+<p>Für mehr siehe
+<a href="https://github.com/zvavybir/legacylisten/blob/master/LICENSE.md">LICENSE.md</a>.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Obwohl es nicht beabsichtigt war (<a href="https://www.fefe.de/nowindows/">sogar im
+Gegenteil</a>), sollte <code>legacylisten</code>
+mehr oder weniger portabel sein (<code>~/</code> steht für das
+Benutzerverzeichnis – in <code>legacylisten</code> sogar unter MS Windows).</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Das ist natürlich ziemlich schlecht für den
+Arbeitsspeicherfußabdruck, aber es ist das beste was ich bisher
+machen konnte (zu mindestens ist es eine ganze Größenordnung
+besser als die schlimmste Implementation, die ich hatte).  Wenn du
+eine bessere Idee hast, <strong>bitte</strong> <a href="#mithelfen">helfe mit</a>!</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Dieser Befehl ist ein bisschen speziell, da er intern anderes
+verarbeitet wird.  Man kann das zum einen an dem speziellen Namen
+(einziger Befehl ohne Buchstabe) sehen, andererseits (während man
+<code>legacylisten</code> ausführt) daran, dass obwohl Befehl üblicherweise
+streng in der angegebenen Reihenfolge ausgeführt werden, dieser
+vor allen anderen auf der selben Zeile ausgeführt wird.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p><code>legacylisten</code> versucht es aus den Metadaten der Audiodatei zu
+lesen oder – wenn das scheitert (was oft passiert, da die
+verwendete Routine sich noch in der Entwicklung zu befinden
+scheint) – dekodiert das ganze Lied ein zweites Mal um die Länge
+nach einer kurzen Wartezeit auf einem einfachen, aber teuren Weg
+zu bekommen.  Bis das behoben ist (wenn du eine Idee hast,
+<strong>bitte</strong> <a href="#mithelfen">helfe mit</a>), würde ich nicht empfehlen
+mehrere Lieder in kurzer Abfolge zu überspringen, da pro Lied ein
+Thread zum Dekodieren gestartet wird – sogar nachdem bereits
+bekannt ist, dass das Ergebnis nicht benötigt werden wird.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="english.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="english.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
