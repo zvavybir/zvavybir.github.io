@@ -142,11 +142,11 @@ change how often a song is played (<code>legacylisten</code> is always on
 shuffle-all), but there are some other even odder features.</p>
 <h2 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h2>
 <p><code>legacylisten</code> creates a list of all songs in
-<code>~/.zvavybir/legacylisten/data</code><sup class="footnote-reference"><a href="#1">1</a></sup> together with their associated
-so-called &quot;playing likelihood&quot;<sup class="footnote-reference"><a href="#2">2</a></sup> and volume (the standard values are
-10 and 10% respectively).  Then it will choose a song at random with
-the probability proportional to it's playing likelihood and plays it,
-unless you request something different.</p>
+<code>~/.zvavybir/legacylisten/data</code><sup class="footnote-reference"><a href="#1">1</a></sup> and sub directories together with
+their associated so-called &quot;playing likelihood&quot;<sup class="footnote-reference"><a href="#2">2</a></sup> and volume (the
+standard values are 10 and 10% respectively).  Then it will choose a
+song at random with the probability proportional to it's playing
+likelihood and plays it, unless you request something different.</p>
 <p>The volume is adjustable on a per-song basis and is saved.  Although
 simple (ridiculously trivial indeed) to implement, there is no way to
 change the global volume, since I figured that this is better left to
@@ -277,6 +277,16 @@ extension, but the language identifier <em>has</em> to be correct.</li>
 </ul>
 </li>
 </ul>
+<h2 id="plugin-interface"><a class="header" href="#plugin-interface">Plugin interface</a></h2>
+<p>In case there is no metadata tag in the song, you can use the plugin
+interface to tell <code>legacylisten</code> the song's title and artist.  Every
+plugin is a shell script (or executable if you prefer) in the
+<code>~/.zvavybir/legacylisten/parser</code> directory (or sub directories
+thereof) and gets the song's file name (without new line character) as
+input (on stdin).  If the file name could be parsed it has to output
+the song's title and artist (delimited by zero bytes and optionally a
+trailing zero byte) on stdout.  If no zero bytes are in the output the
+parsing is treated as having failed and will be ignored.</p>
 <h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
 <p>As every software <code>legacylisten</code> too always can be improved.  While
 I'm trying to get it usable alone, I don't have unlimited time and
@@ -332,7 +342,7 @@ Hauptbesonderheit ist, dass man ändern kann, wie oft ein Lied
 abgespielt wird (<code>legacylisten</code> ist immer auf Shuffle-all), aber es
 gibt auch einige noch komischere Funktionen.</p>
 <h2 id="funktionsweise"><a class="header" href="#funktionsweise">Funktionsweise</a></h2>
-<p><code>legacylisten</code> erzeugt eine Liste aller Lieder in
+<p><code>legacylisten</code> erzeugt rekursiv eine Liste aller Lieder in
 <code>~/.zvavybir/legacylisten/data</code><sup class="footnote-reference"><a href="#1">1</a></sup> zusammen mit ihrer
 &quot;Spielwahrscheinlichkeit&quot; und Lautstärke (die Standardwerte sind 10
 und 10% respektive).  Dann wählt es ein zufälliges Lied mit der
@@ -477,6 +487,17 @@ die Sprach-ID muss aber korrekt sein.</li>
 </ul>
 </li>
 </ul>
+<h2 id="pluginschnittstelle"><a class="header" href="#pluginschnittstelle">Pluginschnittstelle</a></h2>
+<p>Wenn es im Lied kein Metadaten-Tag gibt, kann man die
+Pluginschnittstelle nutzen, um <code>legacylisten</code> den Titel und Künstler
+des Liedes mitzuteilen.  Jedes Plugin ist ein Shellskript (oder eine
+Binärdatei) im <code>~/.zvavybir/legacylisten/parser</code> Verzeichnis (oder
+Unterverzeichnisse davon) und bekommt den Dateinamen des Liedes (ohne
+Newline-Zeichen) als Eingabe (auf stdin).  Wenn der Dateiname geparst
+werden konnte, muss es den Titel und Künstler (getrennt bei einem
+Nullbyte und mit optionalem Nullbyte am Ende) auf stdout ausgeben.
+Wenn keine Nullbytes in der Ausgabe sind wird das Parsen als
+fehlgeschlagen behandelt und ignoriert.</p>
 <h2 id="mithelfen"><a class="header" href="#mithelfen">Mithelfen</a></h2>
 <p>Wie jedes Programm auch <code>legacylisten</code> kann immer verbessert werden.
 Obwohl ich auch alleine versuche, es nutzbar zu machen, habe ich nicht

@@ -141,7 +141,7 @@ Hauptbesonderheit ist, dass man ändern kann, wie oft ein Lied
 abgespielt wird (<code>legacylisten</code> ist immer auf Shuffle-all), aber es
 gibt auch einige noch komischere Funktionen.</p>
 <h2 id="funktionsweise"><a class="header" href="#funktionsweise">Funktionsweise</a></h2>
-<p><code>legacylisten</code> erzeugt eine Liste aller Lieder in
+<p><code>legacylisten</code> erzeugt rekursiv eine Liste aller Lieder in
 <code>~/.zvavybir/legacylisten/data</code><sup class="footnote-reference"><a href="#1">1</a></sup> zusammen mit ihrer
 &quot;Spielwahrscheinlichkeit&quot; und Lautstärke (die Standardwerte sind 10
 und 10% respektive).  Dann wählt es ein zufälliges Lied mit der
@@ -286,6 +286,17 @@ die Sprach-ID muss aber korrekt sein.</li>
 </ul>
 </li>
 </ul>
+<h2 id="pluginschnittstelle"><a class="header" href="#pluginschnittstelle">Pluginschnittstelle</a></h2>
+<p>Wenn es im Lied kein Metadaten-Tag gibt, kann man die
+Pluginschnittstelle nutzen, um <code>legacylisten</code> den Titel und Künstler
+des Liedes mitzuteilen.  Jedes Plugin ist ein Shellskript (oder eine
+Binärdatei) im <code>~/.zvavybir/legacylisten/parser</code> Verzeichnis (oder
+Unterverzeichnisse davon) und bekommt den Dateinamen des Liedes (ohne
+Newline-Zeichen) als Eingabe (auf stdin).  Wenn der Dateiname geparst
+werden konnte, muss es den Titel und Künstler (getrennt bei einem
+Nullbyte und mit optionalem Nullbyte am Ende) auf stdout ausgeben.
+Wenn keine Nullbytes in der Ausgabe sind wird das Parsen als
+fehlgeschlagen behandelt und ignoriert.</p>
 <h2 id="mithelfen"><a class="header" href="#mithelfen">Mithelfen</a></h2>
 <p>Wie jedes Programm auch <code>legacylisten</code> kann immer verbessert werden.
 Obwohl ich auch alleine versuche, es nutzbar zu machen, habe ich nicht
