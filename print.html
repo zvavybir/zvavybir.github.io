@@ -250,6 +250,7 @@ As an example, this is my configuration file:</p>
 <pre><code>data_dir,/media/my_user_name/external_harddrive/legacylisten,
 ignore_ram,false,
 lang,german,
+repeat_bonus,2,
 </code></pre>
 <p>There are currently four possible options:</p>
 <ul>
@@ -284,6 +285,11 @@ The path has no requirements about filename or file
 extension, but the language identifier <em>has</em> to be correct.</li>
 </ul>
 </li>
+<li><code>repeat_bonus</code>: Repeating a song is usually a sign that the song is
+good and should be played more often, but it's very easy to forget
+to increase it's playing likelihood, so this option does this
+automatically.  Everytime a song is repeated it's increased by the
+configured value.  You can also set a negative value.</li>
 </ul>
 <h2 id="plugin-interface"><a class="header" href="#plugin-interface">Plugin interface</a></h2>
 <p>In case there is no metadata tag in the song, you can use the plugin
@@ -456,6 +462,7 @@ Als ein Beispiel, hier ist meine Konfigurationsdatei:</p>
 <pre><code>data_dir,/media/my_user_name/external_harddrive/legacylisten,
 ignore_ram,false,
 lang,german,
+repeat_bonus,2,
 </code></pre>
 <p>Es gibt aktuell vier mögliche Optionen:</p>
 <ul>
@@ -490,6 +497,13 @@ Der Pfad hat keine Anforderungen über Dateiname oder Dateiendung,
 die Sprach-ID muss aber korrekt sein.</li>
 </ul>
 </li>
+<li><code>repeat_bonus</code>: Ein Lied zu wiederholen ist normalerweise ein
+Zeichen dafür, dass das Lied gut ist und öfters gespielt werden
+sollte.  Allerdings ist es sehr einfach zu vergessen seine
+Spielwahrscheinlichkeit zu erhöhen, daher kann diese Option es
+automatisch machen.  Jedes mal wenn ein Lied wiederholt wird, wird
+sie um den angegebenen Wert erhöht.  Der Wert kann auch negativ
+sein.</li>
 </ul>
 <h2 id="pluginschnittstelle"><a class="header" href="#pluginschnittstelle">Pluginschnittstelle</a></h2>
 <p>Wenn es im Lied kein Metadaten-Tag gibt, kann man die
